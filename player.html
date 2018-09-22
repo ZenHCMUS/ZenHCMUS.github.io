@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div{
+padding-top: 20%;
+}
+
+</style>
+</head>
+<body onload="myFunction()">
+
+
+<script type="text/javascript">
+
+
+function myFunction() {
+  //setInterval(function(){ window.scrollBy(0, 1);}, 100/speed);
+  var list = getParameterByName('img').split(',');
+  alert(list);
+  var speed = getParameterByName('speed');
+  var html = "<div>";
+  var next = "</div>";
+  for(var i in list)
+  {
+	html += "<img width=\"100%\" src=\"" + "https://drive.google.com/uc?export=download&id=" + list[i] + "\">" + next;
+	next = "";
+  }
+  document.body.innerHTML = html;
+  var location = 0;
+  setInterval(function(){ window.top.scroll(0, location); location ++;}, 100/speed);
+  //setInterval(function(){ alert('debug');}, 100/speed);
+}
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+</script>
+</body>
+</html>
+
+

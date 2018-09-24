@@ -15,7 +15,7 @@ padding-top: 20%;
 
 
 function myFunction() {
-  //setInterval(function(){ window.scrollBy(0, 1);}, 100/speed);
+  
   var list = getParameterByName('img').split(',');
   //alert(list);
   var speed = getParameterByName('speed');
@@ -23,12 +23,14 @@ function myFunction() {
   var next = "</div>";
   for(var i in list)
   {
-	html += "<img width=\"100%\" src=\"" + "https://drive.google.com/uc?export=download&id=" + list[i] + "\">" + next;
+	//html += "<img width=\"100%\" src=\"" + "https://drive.google.com/uc?export=download&id=" + list[i] + "\">" + next;
+	html += "<img src=\"" + "https://drive.google.com/uc?export=download&id=" + list[i] + "\">" + next;
 	next = "";
   }
   document.body.innerHTML = html;
-  var location = 0;
-  setInterval(function(){ window.top.scroll(0, location); location ++;}, 100/speed);
+  //var location = 0;
+  //setInterval(function(){ window.top.scroll(0, location); location ++;}, 100/speed);
+  setInterval(function(){ window.scrollBy(0, 1);}, 100/speed);
   //setInterval(function(){ alert('debug');}, 100/speed);
 }
 function getParameterByName(name, url) {
